@@ -2,20 +2,19 @@ package com.gestaoapi.estoque.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.math.BigDecimal;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
-
 public class Produto {
     private Long id;
     private String descricao;
     private String categoria;
-    private Integer quantidade;
     private Float preco;
+    private Integer quantidade;
     private Boolean status;
 
 }

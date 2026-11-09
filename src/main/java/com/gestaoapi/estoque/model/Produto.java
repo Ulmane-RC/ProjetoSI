@@ -15,7 +15,7 @@ public class Produto {
     private String descricao;
     private String categoria;
     private Integer quantidade;
-    private Float preco;
-    private Boolean status;
+    private BigDecimal preco;
+    private boolean status;
 
 }

@@ -9,7 +9,6 @@ import com.gestaoapi.repository.ProdutoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 
     @Service
@@ -19,7 +18,7 @@ import java.util.List;
         private final ProdutoRepository repository;
 
         public ProdutoResponseDTO cadastrar(ProdutoRequestDTO dto) {
-            if (dto.preco() == null || dto.preco().compareTo(BigDecimal.ZERO) <= 0) {
+            if (dto.preco() == null || dto.preco() <= 0.0f) {
                 throw new IllegalArgumentException("Preço inválido: O preço do produto deve ser maior que zero.");
             }
 
@@ -32,7 +31,7 @@ import java.util.List;
                     dto.status() != null ? dto.status() : true
             );
 
-            Produto produtoSalvo = repository.salvar(produto);
+            Produto produtoSalvo = repository.save(produto);
 
             return new ProdutoResponseDTO(
                     produtoSalvo.getId(),
@@ -45,11 +44,10 @@ import java.util.List;
         }
 
         public List<ProdutoResponseDTO> listar() {
-            return repository.buscarTodos().stream()
+            return repository.findAll().stream()
                     .map(p -> new ProdutoResponseDTO(
                             p.getId(), p.getDescricao(), p.getCategoria(), p.getPreco(), p.getQuantidade(), p.getStatus()
                     ))
                     .toList();
         }
     }
-}

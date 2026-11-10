@@ -1,10 +1,13 @@
 package com.gestaoapi.estoque.controller;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 public class ProdutoController {
 
-import com.gestaoapi.dto.ProdutoRequestDTO;
-import com.gestaoapi.dto.ProdutoResponseDTO;
-import com.gestaoapi.service.ProdutoService;
+import com.gestaoapi.estoque.dto.ProdutoRequestDTO;
+import com.gestaoapi.estoque.dto.ProdutoResponseDTO;
+import com.gestaoapi.estoque.service.ProdutoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

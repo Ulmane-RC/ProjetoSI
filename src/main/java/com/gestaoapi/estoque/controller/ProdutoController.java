@@ -1,10 +1,5 @@
 package com.gestaoapi.estoque.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-public class ProdutoController {
-
 import com.gestaoapi.estoque.dto.ProdutoRequestDTO;
 import com.gestaoapi.estoque.dto.ProdutoResponseDTO;
 import com.gestaoapi.estoque.service.ProdutoService;
@@ -15,23 +10,22 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-    @RestController
-    @RequestMapping("/produtos")
-    @RequiredArgsConstructor
-    public class ProdutoController {
+@RestController
+@RequestMapping("/produtos")
+@RequiredArgsConstructor
+public class ProdutoController {
 
-        private final ProdutoService service;
+    private final ProdutoService service;
 
-        @PostMapping
-        public ResponseEntity<ProdutoResponseDTO> cadastrar(@RequestBody ProdutoRequestDTO dto) {
-            ProdutoResponseDTO response = service.cadastrar(dto);
-            return ResponseEntity.status(HttpStatus.CREATED).body(response);
-        }
+    @PostMapping
+    public ResponseEntity<ProdutoResponseDTO> cadastrar(@RequestBody ProdutoRequestDTO dto) {
+        ProdutoResponseDTO response = service.cadastrar(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
 
-        @GetMapping
-        public ResponseEntity<List<ProdutoResponseDTO>> listar() {
-            List<ProdutoResponseDTO> lista = service.listar();
-            return ResponseEntity.ok(lista);
-        }
+    @GetMapping
+    public ResponseEntity<List<ProdutoResponseDTO>> listar() {
+        List<ProdutoResponseDTO> lista = service.listar();
+        return ResponseEntity.ok(lista);
     }
 }

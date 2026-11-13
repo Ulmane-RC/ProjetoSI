@@ -61,20 +61,6 @@ Retorna a lista de todos os produtos cadastrados no estoque.
   curl http://localhost:8080/produtos
   ```
 
-- **Exemplo de resposta (`200 OK`):**
-  ```json
-  [
-    {
-      "id": 1,
-      "descricao": "Notebook Dell",
-      "categoria": "INFORMATICA",
-      "preco": 3500.00,
-      "quantidade": 2,
-      "status": true
-    }
-  ]
-  ```
-
 ### `POST /produtos`
 Cadastra um novo produto no estoque.
 
@@ -89,6 +75,20 @@ Cadastra um novo produto no estoque.
   ```powershell
   curl.exe -X POST http://localhost:8080/produtos -H "Content-Type: application/json" -d '{\"descricao\": \"Notebook Dell\", \"categoria\": \"INFORMATICA\", \"preco\": 3500.00, \"quantidade\": 5, \"status\": true}'
   ```
+  
+- **Exemplo de resposta (`200 OK`):**
+  ```json
+  [
+    {
+      "id": 1,
+      "descricao": "Notebook Dell",
+      "categoria": "INFORMATICA",
+      "preco": 3500.00,
+      "quantidade": 2,
+      "status": true
+    }
+  ]
+  ```
 
 - **Resposta (`201 Created`):** Retorna o JSON do produto salvo com o `id` gerado automaticamente.
 
@@ -96,13 +96,13 @@ Cadastra um novo produto no estoque.
 
 ## 5. Verificação e Testes
 
-4. **Verifique se os serviços estão rodando:**
+1. **Verifique se os serviços estão rodando:**
    ```bash
    docker ps
    ```
    A API estará disponível em `http://localhost:8080`.
 
-5. **Para parar e remover os containers:**
+2. **Para parar e remover os containers:**
    ```bash
    docker compose down
    ```

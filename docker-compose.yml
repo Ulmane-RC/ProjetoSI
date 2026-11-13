@@ -11,7 +11,7 @@ services:
       - "${DB_PORT}:5432"
 
   app:
-    build: .
+    image: ghcr.io/ulmane-rc/projetosi-app:v1
     container_name: estoque-app
     ports:
       - "${APP_PORT}:8080"
